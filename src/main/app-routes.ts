@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import { AuthTemplate } from 'themes';
 
 interface IRouterPattern {

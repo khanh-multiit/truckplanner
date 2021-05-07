@@ -62,15 +62,11 @@ const setToken = (user: any, profile: any) => {
   return false;
 };
 
-const checkAuth = () => {
-  return getToken() ? Promise.resolve() : Promise.reject();
-};
-
 const removeToken = () => {
   localStorage.removeItem(tokenKey);
   localStorage.removeItem(tokenUser);
   localStorage.removeItem(tokenProfile);
 };
 
-const authProvider = { login, getToken, getLocalProfile, getLocalUser, checkAuth, removeToken };
+const authProvider = { login, getToken, getLocalProfile, getLocalUser, removeToken };
 export default authProvider;

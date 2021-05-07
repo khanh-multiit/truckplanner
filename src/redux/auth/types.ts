@@ -9,7 +9,7 @@
  * export const YOUR_ACTION_CONSTANT = 'yourproject/YourContainer/YOUR_ACTION_CONSTANT';
  */
 
-const scope = process.env.REACT_APP_BASENAME;
+const scope = 'multi-it';
 
 export const USER_LOGIN = `${scope}/USER_LOGIN`;
 export const USER_LOGIN_ERROR = `${scope}/USER_LOGIN_ERROR`;

@@ -1,8 +1,8 @@
-import { call, put, takeLatest, takeEvery } from 'redux-saga/effects';
+import { call, put, takeLatest } from 'redux-saga/effects';
 import authProvider from 'utils/auth-provider';
 import { push } from 'connected-react-router';
 import { BaseAction } from 'redux/types';
-import { USER_LOGIN, USER_CHECK } from './types';
+import { USER_LOGIN } from './types';
 
 export interface ResponseGenerator {
   config?: any;
@@ -25,18 +25,8 @@ function* userLogin(action: BaseAction) {
   }
 }
 
-function* userCheck(action: BaseAction) {
-  const { redirect } = action.meta;
-  try {
-    yield call(authProvider.checkAuth);
-  } catch (error) {
-    yield put(push(redirect || '/login'));
-  }
-}
-
 function* authSaga() {
   yield takeLatest(USER_LOGIN, userLogin);
-  yield takeEvery(USER_CHECK, userCheck);
 }
 
 export default authSaga;

@@ -1,18 +1,21 @@
 import React from 'react';
-import { Route, Switch, withRouter } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { AnonTemplate } from 'themes';
-import { useDispatch } from 'react-redux';
-import { userCheck } from 'redux/auth/actions';
+import { useSelector } from 'react-redux';
+import { State } from 'redux/types';
 import Async from './Async';
 import router from './app-routes';
 
 const App = () => {
   const availabelRoutes = router;
-  const dispatch = useDispatch();
+
+  const { auth } = useSelector((state: State) => state);
 
   const routeRenderer = (Layout: any, pageComponent: string, noAuth = false) => {
-    if (!noAuth) {
-      dispatch(userCheck({}, '/login'));
+    const isLogin: any = auth;
+    // to-do
+    if (!noAuth && !isLogin?.success && window.location.pathname !== '/login') {
+      window.location.replace('/login');
     }
 
     return (
@@ -43,4 +46,4 @@ const App = () => {
   );
 };
 
-export default withRouter(App);
+export default App;
