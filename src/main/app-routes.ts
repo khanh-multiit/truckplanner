@@ -12,12 +12,12 @@ const routes: IRouterPattern[] = [
   {
     path: '/login',
     noAuth: true,
-    pageComponent: 'Login',
+    pageComponent: 'login/login',
   },
   {
     path: '/',
     layout: AuthTemplate,
-    pageComponent: 'Dashboard',
+    pageComponent: 'home/home',
   },
 ];
 

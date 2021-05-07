@@ -1,3 +1,8 @@
+import 'devextreme/dist/css/dx.common.css';
+import 'themes/generated/theme.base.css';
+import 'themes/generated/theme.additional.css';
+import 'themes/generated/dx-styles.scss';
+
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { AnonTemplate } from 'themes';

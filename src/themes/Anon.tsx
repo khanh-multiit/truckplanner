@@ -4,7 +4,7 @@ interface AnonProps {
   children: ReactNode;
 }
 const Anon = ({ children }: AnonProps) => {
-  return <>Anon</>;
+  return <>{children}</>;
 };
 
 export default Anon;
