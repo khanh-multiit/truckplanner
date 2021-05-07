@@ -4,9 +4,15 @@ import { LoginForm } from 'components';
 
 function LoginPage() {
   return (
-    <SingleCard title="Sign in">
-      <LoginForm></LoginForm>
-    </SingleCard>
+    <div style={{
+        width:"100%",
+        height:"100vh"
+    }}>
+        <SingleCard title="Sign in">
+            <LoginForm></LoginForm>
+        </SingleCard>
+    </div>
+
   );
 }
 
