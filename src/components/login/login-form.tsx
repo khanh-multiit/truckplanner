@@ -40,7 +40,7 @@ const LoginForm = () => {
                           <Label visible={false} />
                       </SimpleItem>
                       <ButtonItem>
-                          <ButtonOptions width={'100%'} height={'50px'} type={'success'} useSubmitBehavior={true}>
+                          <ButtonOptions width={'100%'} height={'50px'} type={'default'} useSubmitBehavior={true}>
                         <span className="dx-button-text">
                           {loading ? <LoadIndicator width={'24px'} height={'24px'} visible={true} /> : 'Sign In'}
                         </span>

@@ -7,7 +7,9 @@
     font-style: normal;
     a {
       text-decoration: none;
-      color: #47c419;
+      &:hover{
+        text-decoration: underline;
+      }
     }
   }
 
