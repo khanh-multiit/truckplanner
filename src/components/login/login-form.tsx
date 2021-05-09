@@ -1,6 +1,6 @@
-import React, {useState, useRef, useCallback, useEffect, Fragment, useReducer} from 'react';
+import React, {useState, useRef, useCallback, Fragment} from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import Form, { Item, Label, ButtonItem, ButtonOptions, RequiredRule, EmailRule, SimpleItem, GroupItem, AsyncRule } from 'devextreme-react/form';
+import Form, { Label, ButtonItem, ButtonOptions, RequiredRule, EmailRule, SimpleItem, GroupItem, AsyncRule } from 'devextreme-react/form';
 import LoadIndicator from 'devextreme-react/load-indicator';
 import './login-form.scss';
 
@@ -48,7 +48,7 @@ const LoginForm = () => {
                       </ButtonItem>
                       <SimpleItem cssClass={'forget'}>
                           <div className={'link'}>
-                              <Link to={'/reset-password'}>Forgot password?</Link>
+                              <Link to={'/recovery/reset-password'}>Forgot password?</Link>
                           </div>
                       </SimpleItem>
                   </GroupItem>

@@ -4,7 +4,7 @@ import 'themes/generated/theme.additional.css';
 import 'themes/generated/dx-styles.scss';
 
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import { AnonTemplate } from 'themes';
 import { useSelector } from 'react-redux';
 import { State } from 'redux/types';
@@ -46,7 +46,9 @@ const App = () => {
 
   return (
     <div className="App">
-      <Switch>{routeListRedenrer()}</Switch>
+      <BrowserRouter>
+        <Switch>{routeListRedenrer()}</Switch>
+      </BrowserRouter>
     </div>
   );
 };
