@@ -6,9 +6,10 @@ function LoginPage() {
   return (
     <div style={{
         width:"100%",
-        height:"100vh"
+        height:"100vh",
+        backgroundColor:"#f0f2f5"
     }}>
-        <SingleCard title="Sign in">
+        <SingleCard title="">
             <LoginForm></LoginForm>
         </SingleCard>
     </div>
