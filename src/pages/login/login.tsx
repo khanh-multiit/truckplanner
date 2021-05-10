@@ -7,7 +7,7 @@ import { State } from 'redux/types';
 import notify from 'devextreme/ui/notify';
 import { useHistory } from 'react-router';
 
-function LoginPage() {
+const LoginPage = () => {
   const { auth } = useSelector((state: State) => state);
   const history = useHistory();
   const [isSubmitted, setSubmitted] = useState(false);
@@ -15,19 +15,20 @@ function LoginPage() {
 
   const data = {
     email: 'mch@multi-it.dk',
-    password: '1234567800',
+    password: '12345678',
   };
 
-  useEffect(() => {
-    if (auth.error && isSubmitted) {
-      notify(auth.error, 'error', 2000);
-    }
-    if (auth?.user && auth?.profile && !isSubmitted) {
-      history.push('/');
-    }
-  }, [auth]);
+  // useEffect(() => {
+  //   if (auth.error && isSubmitted) {
+  //     notify(auth.error, 'error', 2000);
+  //   }
+  //   if (auth?.user && auth?.profile && !isSubmitted) {
+  //     history.push('/');
+  //   }
+  // }, [auth]);
 
-  const login = () => {
+  const login = (e: any) => {
+    e.preventDefault();
     setSubmitted(true);
     setLoading(true);
   };
@@ -37,6 +38,6 @@ function LoginPage() {
       <LoginForm data={data} onSubmit={login} loading={loading} />
     </SingleCard>
   );
-}
+};
 
 export default LoginPage;

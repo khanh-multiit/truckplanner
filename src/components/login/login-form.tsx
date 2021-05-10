@@ -11,7 +11,7 @@ interface Props {
     password: string;
   };
   loading: boolean;
-  onSubmit: () => void;
+  onSubmit: (e: any) => void;
 }
 
 const LoginForm = ({ data, loading, onSubmit }: Props) => {
