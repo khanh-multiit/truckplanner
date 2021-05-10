@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ConnectedRouter } from 'connected-react-router';
-import history from 'utils/history';
+// import history from 'utils/history';
 import { Provider } from 'react-redux';
 import configureStore from 'redux/configureStore';
 import App from './main/App';
 import reportWebVitals from './reportWebVitals';
+import './polyfills';
+import { createBrowserHistory } from 'history';
 
-const store = configureStore({}, history);
+export const history = createBrowserHistory();
+export const store = configureStore(history);
 
 ReactDOM.render(
   <Provider store={store}>

@@ -16,6 +16,8 @@ export const USER_LOGIN_ERROR = `${scope}/USER_LOGIN_ERROR`;
 export const USER_LOGIN_SUCCESS = `${scope}/USER_LOGIN_SUCCESS`;
 
 export const USER_CHECK = `${scope}/USER_CHECK`;
+export const USER_CHECK_SUCCESS = `${scope}/USER_CHECK_SUCCESS`;
+export const USER_CHECK_ERROR = `${scope}/USER_CHECK_ERROR`;
 
 export const USER_LOAD = `${scope}/USER_LOAD`;
 export const USER_LOAD_SUCCESS = `${scope}/USER_LOAD_SUCCESS`;
@@ -37,12 +39,13 @@ export type AuthUserState = {
 };
 
 export type AuthState = {
-  success: boolean;
   is_admin: boolean;
   profile: AuthProfileState | null;
   user: AuthUserState | null;
   pending: boolean;
   fetchTime: null | number;
+  error: boolean | null | string;
+  success: boolean | null;
 };
 
 export interface LoginPayloadProps {

@@ -2,11 +2,10 @@
 import { createStore, applyMiddleware, compose, Store } from 'redux';
 import { routerMiddleware } from 'connected-react-router';
 import createSagaMiddleware, { Saga } from 'redux-saga';
-import { History } from 'history';
+import { createBrowserHistory, History } from 'history';
 import { ReducerMap, SagaMap } from 'typesafe-actions';
 import rootReducer from './reducers';
 import rootSaga from './sagas';
-
 declare global {
   interface Window {
     __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
@@ -19,7 +18,9 @@ export interface InjectedStore extends Store {
   runSaga(saga: Saga | (() => IterableIterator<any>) | undefined, args: any | undefined): any;
 }
 
-export default function configureStore(initialState = {}, history: History) {
+export const history = createBrowserHistory();
+
+export default function configureStore(history: History) {
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
   const reduxSagaMonitorOptions = {};
@@ -33,7 +34,7 @@ export default function configureStore(initialState = {}, history: History) {
 
   const enhancers = [applyMiddleware(...middlewares)];
 
-  const store: InjectedStore = createStore(rootReducer(history), initialState, composeEnhancers(...enhancers));
+  const store: InjectedStore = createStore(rootReducer(history), {}, composeEnhancers(...enhancers));
 
   // Root Saga
   sagaMiddleware.run(rootSaga);

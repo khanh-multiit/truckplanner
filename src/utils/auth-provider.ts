@@ -62,11 +62,27 @@ const setToken = (user: any, profile: any) => {
   return false;
 };
 
+const getUser = async () => {
+  const user = await getLocalUser();
+  const profile = await getLocalProfile();
+  if (user && profile) {
+    return Promise.resolve({ data: { user, profile }, success: true });
+  }
+
+  return Promise.reject({
+    message: 'Not Found User',
+  });
+};
+
+const checkAuth = () => {
+  return getToken() ? Promise.resolve() : Promise.reject();
+};
+
 const removeToken = () => {
   localStorage.removeItem(tokenKey);
   localStorage.removeItem(tokenUser);
   localStorage.removeItem(tokenProfile);
 };
 
-const authProvider = { login, getToken, getLocalProfile, getLocalUser, removeToken };
+const authProvider = { login, getToken, getLocalProfile, getLocalUser, removeToken, getUser, checkAuth };
 export default authProvider;

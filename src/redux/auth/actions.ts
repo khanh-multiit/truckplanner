@@ -3,7 +3,15 @@
  */
 
 import { BaseAction } from 'redux/types';
-import { LoginPayloadProps, USER_LOGIN, USER_LOGIN_ERROR, USER_LOGIN_SUCCESS, USER_CHECK } from './types';
+import {
+  LoginPayloadProps,
+  USER_LOGIN,
+  USER_LOGIN_ERROR,
+  USER_LOGIN_SUCCESS,
+  USER_CHECK,
+  USER_CHECK_SUCCESS,
+  USER_CHECK_ERROR,
+} from './types';
 
 export const userLogin = (payload: LoginPayloadProps, redirect: string): BaseAction => ({
   type: USER_LOGIN,
@@ -15,10 +23,11 @@ export const userLogin = (payload: LoginPayloadProps, redirect: string): BaseAct
   },
 });
 
-export const userCheck = (payload: {}, redirect: string): BaseAction => ({
+export const userCheck = (redirect: string): BaseAction => ({
   type: USER_CHECK,
-  payload,
   meta: {
     redirect,
+    success: USER_CHECK_SUCCESS,
+    failure: USER_CHECK_ERROR,
   },
 });

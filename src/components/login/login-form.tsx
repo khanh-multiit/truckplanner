@@ -1,26 +1,23 @@
-import React, { useState, useRef, useCallback } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React from 'react';
+import { Link } from 'react-router-dom';
 import Form, { Item, Label, ButtonItem, ButtonOptions, RequiredRule, EmailRule } from 'devextreme-react/form';
 import LoadIndicator from 'devextreme-react/load-indicator';
-import notify from 'devextreme/ui/notify';
-
 import './login-form.scss';
 
-const LoginForm = () => {
-  const history = useHistory();
-  // const { signIn } = useAuth();
-  const [loading, setLoading] = useState(false);
-  const formData = useRef({});
+interface Props {
+  data: {
+    email: string;
+    password: string;
+  };
+  loading: boolean;
+  onSubmit: () => void;
+}
 
-  const onSubmit = useCallback(async (e) => {}, []);
-
-  const onCreateAccountClick = useCallback(() => {
-    history.push('/create-account');
-  }, [history]);
-
+const LoginForm = ({ data, loading, onSubmit }: Props) => {
   return (
     <form className={'login-form'} onSubmit={onSubmit}>
-      <Form formData={formData.current} disabled={loading}>
+      <Form formData={data} disabled={loading}>
         <Item dataField={'email'} editorType={'dxTextBox'} editorOptions={emailEditorOptions}>
           <RequiredRule message="Email is required" />
           <EmailRule message="Email is invalid" />
@@ -45,9 +42,6 @@ const LoginForm = () => {
             <Link to={'/reset-password'}>Forgot password?</Link>
           </div>
         </Item>
-        <ButtonItem>
-          <ButtonOptions text={'Create an account'} width={'100%'} onClick={onCreateAccountClick} />
-        </ButtonItem>
       </Form>
     </form>
   );
