@@ -1,7 +1,11 @@
 {
   "items": [],
-  "baseTheme": "material.orange.light",
+  "baseTheme": "material.teal.light",
   "assetsBasePath": "../../../node_modules/devextreme/dist/css/",
   "outputColorScheme": "base",
-  "base": true
+  "base": true,
+  "makeSwatch": true,
+  "version": "20.2.7",
+  "widgets": [],
+  "removeExternalResources": true
 }

@@ -10,8 +10,14 @@ interface IRouterPattern {
 
 const routes: IRouterPattern[] = [
   {
+    path:'/recovery/reset-password',
+    noAuth:true,
+    isExact: true,
+    pageComponent:'login/forgotPassword'
+  },
+  {
     path: '/login',
-    noAuth: true,
+    noAuth: false,
     pageComponent: 'login/login',
   },
   {

@@ -47,8 +47,8 @@ const LoginForm = ({ data, loading, onSubmit }: Props) => {
   );
 };
 
-const emailEditorOptions = { stylingMode: 'filled', placeholder: 'Email', mode: 'email' };
-const passwordEditorOptions = { stylingMode: 'filled', placeholder: 'Password', mode: 'password' };
+const emailEditorOptions = { stylingMode: 'outlined', mode: 'email' };
+const passwordEditorOptions = { stylingMode: 'outlined', mode: 'password' };
 const rememberMeEditorOptions = { text: 'Remember me', elementAttr: { class: 'form-text' } };
 
 export default LoginForm;
