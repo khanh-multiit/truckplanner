@@ -77,7 +77,22 @@ const dataSource = new CustomStore({
   key: 'id',
   loadMode: 'raw', // omit in the DataGrid, TreeList, PivotGrid, and Scheduler
   load: async () => {
-    return mock;
+    const request = await fetch(`/api/bookings/ordersextjs`);
+    const data = await request.text();
+    console.log(data);
+    return data;
+    // .then((response) => response.json())
+    // .then((data) => {
+    //   return {
+    //     data: data.data,
+    //     totalCount: data.totalCount,
+    //     summary: data.summary,
+    //     groupCount: data.groupCount,
+    //   };
+    // })
+    // .catch(() => {
+    //   throw 'Data Loading Error';
+    // });
   },
   update: async (key, values) => {
     console.log(key, values);

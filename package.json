@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^12.1.10",
     "@types/jest": "^26.0.23",
     "@types/node": "^15.0.2",
+    "@types/qs": "^6.9.6",
     "@types/react": "^17.0.5",
     "@types/react-dom": "^17.0.3",
     "connected-react-router": "^6.9.1",
@@ -17,6 +18,7 @@
     "formik": "^2.2.6",
     "history": "^4.10.1",
     "node-sass": "^4.11.0",
+    "qs": "^6.10.1",
     "react": "^16.2.0",
     "react-app-polyfill": "^1.0.0",
     "react-dom": "^16.2.0",
@@ -55,11 +57,11 @@
     ]
   },
   "devDependencies": {
-    "@types/react-router-dom": "^5.1.7",
-    "babel-eslint": "^10.1.0",
-    "customize-cra": "^1.0.0",
     "devextreme-cli": "1.2.14",
     "devextreme-themebuilder": "^20.2.4",
+    "customize-cra": "^1.0.0",
+    "react-app-rewired": "^2.1.8",
+    "babel-eslint": "^10.1.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-airbnb-typescript": "^12.0.0",
     "eslint-config-prettier": "^6.15.0",
@@ -67,7 +69,6 @@
     "eslint-plugin-prettier": "3.1.4",
     "prettier": "2.2.0",
     "prettier-eslint": "12.0.0",
-    "prettier-eslint-cli": "5.0.0",
-    "react-app-rewired": "^2.1.8"
+    "prettier-eslint-cli": "5.0.0"
   }
 }
